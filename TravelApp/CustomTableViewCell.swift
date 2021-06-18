@@ -10,15 +10,15 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
 
 
-    @IBOutlet weak var habbitViewCell: UIView!
-    @IBOutlet weak var habbitImage: UIImageView!
-    @IBOutlet weak var habbitLabel: UILabel!
-    @IBOutlet weak var habbitButton: UIButton!
+    @IBOutlet weak var habitViewCell: UIView!
+    @IBOutlet weak var habitImage: UIImageView!
+    @IBOutlet weak var habitLabel: UILabel!
+    @IBOutlet weak var habitButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        habbitViewCell.layer.cornerRadius = 15
+        habitViewCell.layer.cornerRadius = 15
     }
     
 }

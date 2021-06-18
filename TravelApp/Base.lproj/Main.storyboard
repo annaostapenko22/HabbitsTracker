@@ -38,7 +38,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="0.69803921568627447" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="habbitCell" rowHeight="90" id="ilP-j7-zVb" customClass="CustomTableViewCell" customModule="TravelApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="habitCell" rowHeight="90" id="ilP-j7-zVb" customClass="CustomTableViewCell" customModule="TravelApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ilP-j7-zVb" id="7UC-db-ROf">
@@ -97,10 +97,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="0.69803921568627447" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="habbitButton" destination="46F-Lw-FMc" id="3Rh-oT-xD2"/>
-                                            <outlet property="habbitImage" destination="5gK-Xq-YaN" id="V2i-H7-Who"/>
-                                            <outlet property="habbitLabel" destination="YL7-er-TAE" id="hzZ-81-8ay"/>
-                                            <outlet property="habbitViewCell" destination="2kX-y7-KV1" id="o0W-WN-tKE"/>
+                                            <outlet property="habitButton" destination="46F-Lw-FMc" id="Mpp-w6-gBI"/>
+                                            <outlet property="habitImage" destination="5gK-Xq-YaN" id="8gl-wq-9k1"/>
+                                            <outlet property="habitLabel" destination="YL7-er-TAE" id="Pbo-wA-rlO"/>
+                                            <outlet property="habitViewCell" destination="2kX-y7-KV1" id="4ll-X2-a2K"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -118,7 +118,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="habbitsTableView" destination="Ysc-CZ-gxu" id="0AD-Kn-5nd"/>
+                        <outlet property="habitsTableView" destination="Ysc-CZ-gxu" id="PQG-A9-gUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fw4-lu-A2A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
