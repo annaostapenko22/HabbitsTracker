@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D77FEE4267CB16900D137E7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */; };
+		7D77FEE8267CBAD400D137E7 /* HabitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */; };
 		CBE0E4A2267C7AC000BB5A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */; };
 		CBE0E4A4267C7AC000BB5A9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */; };
-		CBE0E4A6267C7AC000BB5A9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0E4A5267C7AC000BB5A9E /* ViewController.swift */; };
+		CBE0E4A6267C7AC000BB5A9E /* MainTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */; };
 		CBE0E4A9267C7AC000BB5A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */; };
 		CBE0E4AB267C7AC100BB5A9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */; };
 		CBE0E4AE267C7AC100BB5A9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsModel.swift; sourceTree = "<group>"; };
 		CBE0E49E267C7AC000BB5A9E /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CBE0E4A5267C7AC000BB5A9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrackerViewController.swift; sourceTree = "<group>"; };
 		CBE0E4A8267C7AC000BB5A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE0E4AD267C7AC100BB5A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,8 +62,10 @@
 			children = (
 				CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */,
 				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
-				CBE0E4A5267C7AC000BB5A9E /* ViewController.swift */,
+				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
+				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
 				CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */,
+				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
 				CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */,
 				CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */,
 				CBE0E4AF267C7AC100BB5A9E /* Info.plist */,
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBE0E4A6267C7AC000BB5A9E /* ViewController.swift in Sources */,
+				CBE0E4A6267C7AC000BB5A9E /* MainTrackerViewController.swift in Sources */,
 				CBE0E4A2267C7AC000BB5A9E /* AppDelegate.swift in Sources */,
+				7D77FEE8267CBAD400D137E7 /* HabitsModel.swift in Sources */,
+				7D77FEE4267CB16900D137E7 /* CustomTableViewCell.swift in Sources */,
 				CBE0E4A4267C7AC000BB5A9E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

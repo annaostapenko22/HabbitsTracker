@@ -7,18 +7,18 @@
 
 import UIKit
 
-struct Habbit {
+struct Habit {
     var title: String
     var declaration: String
     var image: String
     var isCheck: Bool
 }
 
-extension Habbit {
+extension Habit {
     
-    static func getHabbitList() -> [Habbit] {
+    static func getHabitList() -> [Habit] {
         
-        [Habbit(title: "Читать", declaration: "Чтение расширяет кругозор и ты становишься более приятным собеседником", image: "read", isCheck: false),
-        Habbit(title: "Делать зарядку", declaration: "Зарядка - залог бодрости и энергии", image: "sport", isCheck: false)]
+        [Habit(title: "Читать", declaration: "Чтение расширяет кругозор и ты становишься более приятным собеседником", image: "read", isCheck: false),
+        Habit(title: "Делать зарядку", declaration: "Зарядка - залог бодрости и энергии", image: "sport", isCheck: false)]
     }
 }
