@@ -12,33 +12,58 @@ class ThemeViewController: UIViewController {
     
     @IBOutlet var orangeThemeCircle: UIButton!
     @IBOutlet var grayThemeCircle: UIButton!
+    @IBOutlet var greenThemeColor: UIButton!
+    @IBOutlet var violetThemeColor: UIButton!
+    @IBOutlet var blueThemeColor: UIButton!
+    @IBOutlet var yellowThemeColor: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
+        
+        let largeBoldCircleFilled = UIImage(systemName: "circle.fill", withConfiguration: largeConfig)
+        let largeBoldEmptyCircle = UIImage(systemName: "circle", withConfiguration: largeConfig)
+        
         let value = retrieveThemeData()
         print("value \(value)")
         if value == "orange" {
-            orangeThemeCircle.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        } else {
-            grayThemeCircle.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+            orangeThemeCircle.setImage(largeBoldCircleFilled, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+        }   else if value == "gray" {
+            orangeThemeCircle.setImage(largeBoldCircleFilled, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
         }
-     
+        else {
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            orangeThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldCircleFilled, for: .normal)
+        }
+        
     }
     
     
     @IBAction func onPaletteCirclePress(_ sender: UIButton) {
-        let paletteCircleEmpty = UIImage(systemName: "circle")
-        let paletteCircleFilled = UIImage(systemName: "circle.fill")
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
+        let paletteCircleEmpty = UIImage(systemName: "circle", withConfiguration: largeConfig)
+        let paletteCircleFilled = UIImage(systemName: "circle.fill", withConfiguration: largeConfig)
         
         if sender.tag == 0 {
             orangeThemeCircle.setImage(paletteCircleFilled, for: .normal)
             grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            greenThemeColor.setImage(paletteCircleEmpty, for: .normal)
             saveThemeData(value: "orange")
-
-        } else {
-            grayThemeCircle.setImage(paletteCircleFilled, for: .normal)
+        } else if sender.tag == 1 {
             orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            grayThemeCircle.setImage(paletteCircleFilled, for: .normal)
+            greenThemeColor.setImage(paletteCircleEmpty, for: .normal)
             saveThemeData(value: "gray")
+        } else {
+            grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            greenThemeColor.setImage(paletteCircleFilled, for: .normal)
+            saveThemeData(value: "green")
         }
     }
     

@@ -379,11 +379,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-rp-Atr">
-                                <rect key="frame" x="114" y="168" width="186" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-rp-Atr">
+                                <rect key="frame" x="36" y="168" width="342" height="150"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAR-xv-cO4">
-                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="50"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAR-xv-cO4">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="150"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <color key="tintColor" red="0.99887330419999998" green="0.63303221899999995" blue="0.22964932060000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -395,8 +395,21 @@
                                             <action selector="onPaletteCirclePress:" destination="IXZ-dS-Nl4" eventType="touchUpInside" id="gdl-b3-Dk5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWe-Nd-YCU">
-                                        <rect key="frame" x="156.5" y="0.0" width="29.5" height="50"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBC-yL-vCm">
+                                        <rect key="frame" x="119" y="0.0" width="104" height="150"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="tintColor" red="0.123221967" green="0.68746054290000003" blue="0.33988714129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPaletteCirclePress:" destination="IXZ-dS-Nl4" eventType="touchUpInside" id="tmT-n7-IED"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWe-Nd-YCU">
+                                        <rect key="frame" x="238" y="0.0" width="104" height="150"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -410,14 +423,66 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Xsn-Gb-O4z"/>
+                                    <constraint firstAttribute="height" constant="150" id="Xsn-Gb-O4z"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-8k-oj3">
+                                <rect key="frame" x="36" y="346" width="342" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-tX-pi2">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="150"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPaletteCirclePress:" destination="IXZ-dS-Nl4" eventType="touchUpInside" id="cMC-re-Tee"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbF-4U-RJr">
+                                        <rect key="frame" x="119" y="0.0" width="104" height="150"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="tintColor" red="0.49184025329999997" green="0.77280896030000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPaletteCirclePress:" destination="IXZ-dS-Nl4" eventType="touchUpInside" id="WUH-9I-rX3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTs-yB-hHA">
+                                        <rect key="frame" x="238" y="0.0" width="104" height="150"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="tintColor" red="0.9543136768777466" green="1" blue="0.112270204199305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPaletteCirclePress:" destination="IXZ-dS-Nl4" eventType="touchUpInside" id="eWN-G1-nrh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="VkE-jD-jht"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6BK-1x-zpe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6BK-1x-zpe" firstAttribute="trailing" secondItem="x5V-rp-Atr" secondAttribute="trailing" constant="36" id="09w-bj-Cfh"/>
                             <constraint firstItem="0qP-Yn-d1o" firstAttribute="centerX" secondItem="HMq-Qb-knd" secondAttribute="centerX" id="5LQ-Fu-bcT"/>
+                            <constraint firstItem="aqf-8k-oj3" firstAttribute="leading" secondItem="x5V-rp-Atr" secondAttribute="leading" id="FT0-tl-jxN"/>
+                            <constraint firstItem="x5V-rp-Atr" firstAttribute="leading" secondItem="6BK-1x-zpe" secondAttribute="leading" constant="36" id="FgQ-ps-Ov5"/>
+                            <constraint firstItem="aqf-8k-oj3" firstAttribute="top" secondItem="x5V-rp-Atr" secondAttribute="bottom" constant="28" id="U60-qc-gCf"/>
+                            <constraint firstItem="x5V-rp-Atr" firstAttribute="width" secondItem="aqf-8k-oj3" secondAttribute="width" id="ZRa-z1-Vr8"/>
                             <constraint firstItem="x5V-rp-Atr" firstAttribute="top" secondItem="0qP-Yn-d1o" secondAttribute="bottom" constant="66" id="fU1-hn-TFj"/>
                             <constraint firstItem="0qP-Yn-d1o" firstAttribute="top" secondItem="6BK-1x-zpe" secondAttribute="top" constant="66" id="pmL-wg-sw7"/>
                             <constraint firstItem="x5V-rp-Atr" firstAttribute="centerX" secondItem="HMq-Qb-knd" secondAttribute="centerX" id="un5-5J-jwU"/>
@@ -425,8 +490,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="9wX-Bk-Fil"/>
                     <connections>
+                        <outlet property="blueThemeColor" destination="gbF-4U-RJr" id="oV6-Jf-tKk"/>
                         <outlet property="grayThemeCircle" destination="FWe-Nd-YCU" id="j6Y-pJ-a2g"/>
+                        <outlet property="greenThemeColor" destination="wBC-yL-vCm" id="uxM-Jm-lKW"/>
                         <outlet property="orangeThemeCircle" destination="uAR-xv-cO4" id="L2w-0c-5d9"/>
+                        <outlet property="violetThemeColor" destination="tvu-tX-pi2" id="klG-G2-AKZ"/>
+                        <outlet property="yellowThemeColor" destination="KTs-yB-hHA" id="jlA-vu-Odp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJn-wR-W3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -564,6 +633,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
