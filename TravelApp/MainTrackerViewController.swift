@@ -21,7 +21,6 @@ class MainTrackerViewController: UIViewController {
         
         habitsTableView.delegate = self
         habitsTableView.dataSource = self
-        
     }
 }
 
@@ -33,7 +32,7 @@ extension MainTrackerViewController: UITableViewDataSource {
         Habit.getHabitList().count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "habbitCell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! CustomTableViewCell
         
         cell.habitLabel.text = habitsList[indexPath.row].title
         cell.habitImage.image = UIImage(named: habitsList[indexPath.row].image)

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7D77FEE4267CB16900D137E7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */; };
 		7D77FEE8267CBAD400D137E7 /* HabitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */; };
+		CB086735267D228300D6E2F0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB086734267D228300D6E2F0 /* SettingsTableViewController.swift */; };
+		CB08673E267D3A2D00D6E2F0 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB08673D267D3A2D00D6E2F0 /* SettingsTableViewCell.swift */; };
+		CB086741267D3CA600D6E2F0 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB086740267D3CA600D6E2F0 /* SettingsItem.swift */; };
 		CBE0E4A2267C7AC000BB5A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */; };
 		CBE0E4A4267C7AC000BB5A9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */; };
 		CBE0E4A6267C7AC000BB5A9E /* MainTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsModel.swift; sourceTree = "<group>"; };
+		CB086734267D228300D6E2F0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		CB08673D267D3A2D00D6E2F0 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		CB086740267D3CA600D6E2F0 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		CBE0E49E267C7AC000BB5A9E /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +47,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB086744267D40F800D6E2F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CBE0E495267C7AC000BB5A9E = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +73,19 @@
 		CBE0E4A0267C7AC000BB5A9E /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				CB086744267D40F800D6E2F0 /* Models */,
 				CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */,
+				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
+				CB086740267D3CA600D6E2F0 /* SettingsItem.swift */,
+				CB086734267D228300D6E2F0 /* SettingsTableViewController.swift */,
 				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
 				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
-				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
 				CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */,
 				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
 				CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */,
 				CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */,
 				CBE0E4AF267C7AC100BB5A9E /* Info.plist */,
+				CB08673D267D3A2D00D6E2F0 /* SettingsTableViewCell.swift */,
 			);
 			path = TravelApp;
 			sourceTree = "<group>";
@@ -145,7 +162,10 @@
 			files = (
 				CBE0E4A6267C7AC000BB5A9E /* MainTrackerViewController.swift in Sources */,
 				CBE0E4A2267C7AC000BB5A9E /* AppDelegate.swift in Sources */,
+				CB086735267D228300D6E2F0 /* SettingsTableViewController.swift in Sources */,
 				7D77FEE8267CBAD400D137E7 /* HabitsModel.swift in Sources */,
+				CB08673E267D3A2D00D6E2F0 /* SettingsTableViewCell.swift in Sources */,
+				CB086741267D3CA600D6E2F0 /* SettingsItem.swift in Sources */,
 				7D77FEE4267CB16900D137E7 /* CustomTableViewCell.swift in Sources */,
 				CBE0E4A4267C7AC000BB5A9E /* SceneDelegate.swift in Sources */,
 			);
