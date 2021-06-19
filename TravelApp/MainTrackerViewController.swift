@@ -20,7 +20,6 @@ class MainTrackerViewController: UIViewController {
         habitsTableView.tableFooterView = UIView()
         habitsTableView.delegate = self
         habitsTableView.dataSource = self
-        
     }
 }
 
