@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="1188" y="483"/>
         </scene>
-        <!--Main Tracker View Controller-->
+        <!-- Actual habits-->
         <scene sceneID="6oW-gh-58U">
             <objects>
                 <viewController id="VBE-el-3ab" customClass="MainTrackerViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ysc-CZ-gxu">
                                 <rect key="frame" x="0.0" y="259" width="414" height="554"/>
-                                <color key="backgroundColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="0.69803921568627447" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="habitCell" rowHeight="80" id="ilP-j7-zVb" customClass="CustomTableViewCell" customModule="TravelApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
@@ -93,12 +93,13 @@
                                                 <constraint firstItem="2kX-y7-KV1" firstAttribute="top" secondItem="7UC-db-ROf" secondAttribute="topMargin" constant="-6" id="ogX-Vg-VF9"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="0.69803921568627447" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.59215686270000001" green="0.59999999999999998" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="habitButton" destination="46F-Lw-FMc" id="Mpp-w6-gBI"/>
                                             <outlet property="habitImage" destination="5gK-Xq-YaN" id="8gl-wq-9k1"/>
                                             <outlet property="habitLabel" destination="YL7-er-TAE" id="Pbo-wA-rlO"/>
                                             <outlet property="habitViewCell" destination="2kX-y7-KV1" id="4ll-X2-a2K"/>
+                                            <segue destination="nfz-Zt-Mad" kind="show" identifier="ShowDetail" id="GzH-KA-735"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -136,6 +137,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h9G-DN-wJO">
+                        <string key="title">
+Actual habits</string>
                         <barButtonItem key="rightBarButtonItem" image="Setting" id="Bcd-8Y-1la">
                             <color key="tintColor" red="0.97647058823529409" green="0.89803921568627454" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -292,7 +295,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3v1-Bf-QIx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.396078431372549" green="0.40784313725490196" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" red="0.97647058823529409" green="0.89803921568627454" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
@@ -331,7 +334,7 @@
         <!--Create habit-->
         <scene sceneID="Pkg-7i-DZH">
             <objects>
-                <tableViewController id="nfz-Zt-Mad" sceneMemberID="viewController">
+                <tableViewController id="nfz-Zt-Mad" customClass="AddHabitViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="KhA-Ht-gjw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,10 +351,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New habit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TkO-ig-pXu">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New habit" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TkO-ig-pXu">
                                                     <rect key="frame" x="10" y="10" width="354" height="30"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="KhA-Ht-gjw" id="yMm-J4-zuf"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -369,10 +375,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Descripting" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R03-I9-Rqu">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Descripting" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R03-I9-Rqu">
                                                     <rect key="frame" x="10" y="10" width="354" height="80"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="KhA-Ht-gjw" id="VT3-Pp-ffN"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -387,15 +396,16 @@
                             </tableViewSection>
                             <tableViewSection id="vui-7w-diZ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PTr-1C-q3d">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="PTr-1C-q3d">
                                         <rect key="frame" x="20" y="204" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PTr-1C-q3d" id="nBF-vl-T7J">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Brc-kT-zRC">
+                                                <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Brc-kT-zRC">
                                                     <rect key="frame" x="10" y="10" width="354" height="23.5"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" systemColor="systemYellowColor"/>
                                                 </datePicker>
                                             </subviews>
@@ -414,11 +424,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="212" translatesAutoresizingMaskIntoConstraints="NO" id="dcE-nc-XVI">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dcE-nc-XVI">
                                                     <rect key="frame" x="10" y="10" width="354" height="23.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mn-aU-Mg1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -449,11 +459,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="212" translatesAutoresizingMaskIntoConstraints="NO" id="46I-kX-9Pj">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="46I-kX-9Pj">
                                                     <rect key="frame" x="10" y="10" width="354" height="23.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQc-Uc-0Ts">
-                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -484,12 +494,23 @@
                     <navigationItem key="navigationItem" title="Create habit" id="PG7-Uq-nhb">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="d9r-8O-TTW">
                             <color key="tintColor" systemColor="systemYellowColor"/>
+                            <connections>
+                                <action selector="pressedAddButton:" destination="nfz-Zt-Mad" id="wIc-TH-ros"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePickerHabit" destination="Brc-kT-zRC" id="lkW-IW-bQw"/>
+                        <outlet property="descriptionHabitTextField" destination="R03-I9-Rqu" id="Ft9-t6-wc5"/>
+                        <outlet property="newHabitTextField" destination="TkO-ig-pXu" id="nYl-th-59t"/>
+                        <outlet property="repeatSwitchHabit" destination="Wma-kd-iOf" id="wRw-td-ZMy"/>
+                        <outlet property="saveHabitButton" destination="d9r-8O-TTW" id="SRq-Zs-nXb"/>
+                        <outlet property="targetSwitchHabit" destination="SJZ-ms-8Y7" id="hKI-rV-PtW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lM-yI-1gz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1362.3188405797102" y="1167.8571428571429"/>
+            <point key="canvasLocation" x="1187" y="1168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TgG-Tn-8zx">
@@ -709,7 +730,7 @@
         <scene sceneID="xXZ-Cd-GOZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GIM-iP-Avl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus.circle.fill" catalog="system" id="ejB-NO-ftg"/>
+                    <tabBarItem key="tabBarItem" title="" image="add-button" selectedImage="add-button" id="ejB-NO-ftg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HIx-s5-wF0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -730,9 +751,14 @@
             <point key="canvasLocation" x="453.62318840579712" y="1167.8571428571429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GzH-KA-735"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" systemColor="systemYellowColor"/>
     <resources>
         <image name="Setting" width="26" height="26"/>
         <image name="Statistics" width="32" height="32"/>
+        <image name="add-button" width="64" height="64"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="arrowtriangle.right" catalog="system" width="128" height="113"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
@@ -740,8 +766,7 @@
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="free-icon-stack-of-papers-156" width="32" height="32"/>
         <image name="pencil.tip.crop.circle" catalog="system" width="128" height="121"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="read" width="32" height="32"/>
+        <image name="read" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
