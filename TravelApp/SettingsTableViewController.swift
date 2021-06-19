@@ -16,7 +16,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem()
-            backButton.title = "Back"
+            backButton.title = "Back2"
             self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
     }
