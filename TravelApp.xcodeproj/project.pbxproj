@@ -43,41 +43,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2497B0CE267D12500073A626 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */,
-				CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		2497B0CF267D12640073A626 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		2497B0D0267D12720073A626 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
-				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
-				2497B0CC267D12320073A626 /* AddHabitViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		2497B0D1267D13060073A626 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		CBE0E495267C7AC000BB5A9E = {
 			isa = PBXGroup;
 			children = (
@@ -97,13 +62,16 @@
 		CBE0E4A0267C7AC000BB5A9E /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
-				2497B0D1267D13060073A626 /* Resources */,
-				2497B0D0267D12720073A626 /* ViewControllers */,
-				2497B0CF267D12640073A626 /* Models */,
-				2497B0CE267D12500073A626 /* Storyboards */,
+				2497B0CC267D12320073A626 /* AddHabitViewController.swift */,
 				CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */,
-				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
+				CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */,
+				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
+				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
 				CBE0E4AF267C7AC100BB5A9E /* Info.plist */,
+				CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */,
+				CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */,
+				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
+				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
 			);
 			path = TravelApp;
 			sourceTree = "<group>";
