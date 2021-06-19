@@ -139,7 +139,7 @@
                         <barButtonItem key="rightBarButtonItem" image="Setting" id="Bcd-8Y-1la">
                             <color key="tintColor" red="0.97647058823529409" green="0.89803921568627454" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="aXv-Gl-xgi" kind="presentation" id="vqH-Ft-WBL"/>
+                                <segue destination="aXv-Gl-xgi" kind="show" id="vqH-Ft-WBL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -156,7 +156,7 @@
             <objects>
                 <tableViewController id="26H-nR-lWM" customClass="SettingsTableViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="2mF-co-I7G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -215,7 +215,7 @@
                                 <connections>
                                     <outlet property="iconView" destination="38m-hc-CWH" id="cZJ-qA-qZK"/>
                                     <outlet property="titleLabel" destination="7Dz-qG-OEC" id="BkP-0l-I3x"/>
-                                    <segue destination="IXZ-dS-Nl4" kind="show" id="rTh-vi-xx9"/>
+                                    <segue destination="IXZ-dS-Nl4" kind="presentation" id="rTh-vi-xx9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -225,9 +225,17 @@
                             <outlet property="delegate" destination="26H-nR-lWM" id="n5I-Nn-Xrb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="QjE-Zu-wzu"/>
+                    <navigationItem key="navigationItem" title="Settings" id="dwS-Bj-lhI">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrow.left" catalog="system" id="K3n-5B-KGk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="Fqz-36-iq2" kind="unwind" unwindAction="unwindToMainScreen:" id="XsA-Yf-mgn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFA-qP-njA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Fqz-36-iq2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2942" y="-442"/>
         </scene>
@@ -357,21 +365,73 @@
             </objects>
             <point key="canvasLocation" x="2010" y="201"/>
         </scene>
-        <!--View Controller-->
+        <!--Theme View Controller-->
         <scene sceneID="COJ-dA-mXx">
             <objects>
-                <viewController id="IXZ-dS-Nl4" sceneMemberID="viewController">
+                <viewController id="IXZ-dS-Nl4" customClass="ThemeViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HMq-Qb-knd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выбери тему" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qP-Yn-d1o">
+                                <rect key="frame" x="118" y="66" width="178" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-rp-Atr">
+                                <rect key="frame" x="114" y="168" width="186" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAR-xv-cO4">
+                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="tintColor" red="0.99887330419999998" green="0.63303221899999995" blue="0.22964932060000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPaletteCirclePress:" destination="IXZ-dS-Nl4" eventType="touchUpInside" id="gdl-b3-Dk5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWe-Nd-YCU">
+                                        <rect key="frame" x="156.5" y="0.0" width="29.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPaletteCirclePress:" destination="IXZ-dS-Nl4" eventType="touchUpInside" id="bVq-zM-VS0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Xsn-Gb-O4z"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6BK-1x-zpe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0qP-Yn-d1o" firstAttribute="centerX" secondItem="HMq-Qb-knd" secondAttribute="centerX" id="5LQ-Fu-bcT"/>
+                            <constraint firstItem="x5V-rp-Atr" firstAttribute="top" secondItem="0qP-Yn-d1o" secondAttribute="bottom" constant="66" id="fU1-hn-TFj"/>
+                            <constraint firstItem="0qP-Yn-d1o" firstAttribute="top" secondItem="6BK-1x-zpe" secondAttribute="top" constant="66" id="pmL-wg-sw7"/>
+                            <constraint firstItem="x5V-rp-Atr" firstAttribute="centerX" secondItem="HMq-Qb-knd" secondAttribute="centerX" id="un5-5J-jwU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9wX-Bk-Fil"/>
+                    <connections>
+                        <outlet property="grayThemeCircle" destination="FWe-Nd-YCU" id="j6Y-pJ-a2g"/>
+                        <outlet property="orangeThemeCircle" destination="uAR-xv-cO4" id="L2w-0c-5d9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJn-wR-W3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3770" y="-720"/>
+            <point key="canvasLocation" x="3769.5652173913045" y="-720.53571428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e7l-GZ-mNf">
@@ -461,10 +521,13 @@
         <!--Navigation Controller-->
         <scene sceneID="ueh-PH-wIW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXv-Gl-xgi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="aXv-Gl-xgi" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tsP-fd-nGr">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="MwY-CT-dr8"/>
+                    </navigationItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" backIndicatorImage="arrow.left" catalog="system" backIndicatorTransitionMaskImage="read" id="tF1-zY-EXW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -486,6 +549,7 @@
         <image name="arrowtriangle.right" catalog="system" width="128" height="113"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="free-icon-stack-of-papers-156" width="32" height="32"/>
         <image name="pencil.tip.crop.circle" catalog="system" width="128" height="121"/>
         <image name="read" width="32" height="32"/>

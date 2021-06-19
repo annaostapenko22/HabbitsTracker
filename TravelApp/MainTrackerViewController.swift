@@ -6,22 +6,49 @@
 //
 import FSCalendar
 import UIKit
+import CoreData
 
 class MainTrackerViewController: UIViewController {
-
+    
     @IBOutlet weak var habitsTableView: UITableView!
     
     let habitsList = Habit.getHabitList()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         
+
         let calendar = FSCalendar(frame: CGRect(x: 0, y: 0	, width: 320, height: 100))
         habitsTableView.tableFooterView = UIView()
         habitsTableView.delegate = self
         habitsTableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewDidAppear")
+        viewLoadSetup()
+        self.habitsTableView.reloadData()
+    }
+    
+    
+    func viewLoadSetup() {
+        let themeValue = retrieveThemeData()
+        print("value \(themeValue)")
+        if themeValue == "orange" {
+            habitsTableView.backgroundColor = UIColor.orange
+        } else {
+            habitsTableView.backgroundColor = UIColor.systemGray6
+        }
+    }
+    
+    @IBAction func unwindToMainScreen(_ unwindSegue: UIStoryboardSegue) {
+     
+    }
 }
+
 
 extension MainTrackerViewController: UITableViewDelegate {
     
@@ -56,23 +83,37 @@ extension MainTrackerViewController: UITabBarDelegate {
             statisticsVC.habitsList = habitsList
         }
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if let vc = segue.destination as? addHabitViewController,
-//           let indexPath = tableView.indexPathForSelectedRow
-//        {
-//            let habit = habitList[indexPath.row]
-//            vc.habit = habit
-//        } else { return }
-//    }
-//
-//    @IBAction func unwindSegueToMainScreen(segue: UIStoryboardSegue) {
-//
-//        guard let newHabitVC = segue.source as? NewPersonViewController else { return }
-//        newHabitVC.saveNewPerson()
-//        habitList.append(newHabitVC.newHabit!)
-//        habitsTableView.reloadData()
-//
-//    }
-//}
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //
+    //        if let vc = segue.destination as? addHabitViewController,
+    //           let indexPath = tableView.indexPathForSelectedRow
+    //        {
+    //            let habit = habitList[indexPath.row]
+    //            vc.habit = habit
+    //        } else { return }
+    //    }
+    //
+    //    @IBAction func unwindSegueToMainScreen(segue: UIStoryboardSegue) {
+    //
+    //        guard let newHabitVC = segue.source as? NewPersonViewController else { return }
+    //        newHabitVC.saveNewPerson()
+    //        habitList.append(newHabitVC.newHabit!)
+    //        habitsTableView.reloadData()
+    //
+    //    }
+    //}
+}
+
+
+extension MainTrackerViewController {
+    func saveThemeData(value: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(value, forKey: "theme")
+    }
+    
+    func retrieveThemeData() -> String{
+        let defaults = UserDefaults.standard
+        guard let savedValue = defaults.string(forKey: "theme") else { return "gray" }
+        return savedValue
+    }
 }
