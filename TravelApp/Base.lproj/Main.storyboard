@@ -103,36 +103,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glq-Zv-Q4e" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="88" width="414" height="163"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsBoundingRectWhenChangingMonths" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="pagingEnabled" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nR4-EX-UjJ"/>
                         <color key="backgroundColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="glq-Zv-Q4e" firstAttribute="leading" secondItem="Ysc-CZ-gxu" secondAttribute="leading" id="1y9-KE-yc5"/>
                             <constraint firstItem="Ysc-CZ-gxu" firstAttribute="centerX" secondItem="1jK-ft-CJn" secondAttribute="centerX" id="AN4-Vo-dR4"/>
                             <constraint firstItem="Ysc-CZ-gxu" firstAttribute="leading" secondItem="nR4-EX-UjJ" secondAttribute="leading" id="JL7-HI-DLD"/>
-                            <constraint firstItem="glq-Zv-Q4e" firstAttribute="trailing" secondItem="Ysc-CZ-gxu" secondAttribute="trailing" id="Tza-nb-Y4j"/>
                             <constraint firstItem="Ysc-CZ-gxu" firstAttribute="top" secondItem="nR4-EX-UjJ" secondAttribute="top" constant="171" id="VuW-nj-bAC"/>
                             <constraint firstItem="Ysc-CZ-gxu" firstAttribute="bottom" secondItem="nR4-EX-UjJ" secondAttribute="bottom" id="jol-zS-S5v"/>
-                            <constraint firstItem="glq-Zv-Q4e" firstAttribute="top" secondItem="nR4-EX-UjJ" secondAttribute="top" id="yJl-A3-qpA"/>
-                            <constraint firstItem="Ysc-CZ-gxu" firstAttribute="top" secondItem="glq-Zv-Q4e" secondAttribute="bottom" constant="8" id="yz4-ma-5hq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h9G-DN-wJO">
