@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2497B0CD267D12320073A626 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497B0CC267D12320073A626 /* AddHabitViewController.swift */; };
 		7D77FEE4267CB16900D137E7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */; };
 		7D77FEE8267CBAD400D137E7 /* HabitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */; };
 		7D77FF0A267D094900D137E7 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FF09267D094900D137E7 /* StatisticsViewController.swift */; };
@@ -21,7 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2497B0CC267D12320073A626 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		1620FEA3226602465D837092 /* Pods-TravelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.debug.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3DBDD08A7A7D3C344F7E23AD /* Pods-TravelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.release.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.release.xcconfig"; sourceTree = "<group>"; };
 		7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 		CBE0E4A0267C7AC000BB5A9E /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
-				2497B0CC267D12320073A626 /* AddHabitViewController.swift */,
 				CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */,
 				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
 				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
@@ -97,13 +94,8 @@
 				7D77FF09267D094900D137E7 /* StatisticsViewController.swift */,
 				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
 				CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */,
-				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
-				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
-				CBE0E4AF267C7AC100BB5A9E /* Info.plist */,
 				CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */,
-				CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */,
-				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
-				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
+				CBE0E4AF267C7AC100BB5A9E /* Info.plist */,
 			);
 			path = TravelApp;
 			sourceTree = "<group>";
@@ -223,7 +215,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBE0E4A6267C7AC000BB5A9E /* MainTrackerViewController.swift in Sources */,
-				2497B0CD267D12320073A626 /* AddHabitViewController.swift in Sources */,
 				CBE0E4A2267C7AC000BB5A9E /* AppDelegate.swift in Sources */,
 				7D77FEE8267CBAD400D137E7 /* HabitsModel.swift in Sources */,
 				7D77FF0A267D094900D137E7 /* StatisticsViewController.swift in Sources */,
