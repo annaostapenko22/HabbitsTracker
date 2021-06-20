@@ -9,6 +9,9 @@ import UIKit
 import CoreData
 
 extension UIView {
+    
+// MARK: - Setting theme palette colors
+    
     func setThemeColors(mainElement: UIView, secondaryElement: UINavigationBar?) {
         let themeValue = Int(retrieveThemeData())
         let model = ThemeModel.getThemeModel(model: themeValue ?? 0)
@@ -21,6 +24,8 @@ extension UIView {
         }
         mainElement.tintColor = hexStringToUIColor(hex: model.textColor)
     }
+    
+// MARK: - Converting hex color to UIColor
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -44,10 +49,14 @@ extension UIView {
         )
     }
     
+// MARK: - Saving theme data to Core Data
+    
     func saveThemeData(value: String) {
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: "theme")
     }
+    
+// MARK: - Retrieving theme data from Core Data
     
     func retrieveThemeData() -> String{
         let defaults = UserDefaults.standard

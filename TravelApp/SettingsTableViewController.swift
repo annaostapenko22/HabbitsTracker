@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-    var settingsList = [
+    private var settingsList = [
         SettingsItem(title: "Тема", image: "pencil.tip.crop.circle", id: "theme"),
         SettingsItem(title: "Уведомления", image: "clock", id: "notification")
     ]

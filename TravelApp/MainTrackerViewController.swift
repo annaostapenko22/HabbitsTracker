@@ -18,9 +18,7 @@ class MainTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
-        
         habitsTableView.tableFooterView = UIView()
-//        habitsTableView.delegate = self
         habitsTableView.dataSource = self
         setUpCalendar()
         view.bringSubviewToFront(habitsTableView)
@@ -28,14 +26,9 @@ class MainTrackerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.setThemeColors(mainElement: view, secondaryElement: navigationController?.navigationBar)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
+        self.view.setThemeColors(mainElement: self.view, secondaryElement: navigationController?.navigationBar)
         habitsTableView.reloadData()
-        self.view.setThemeColors(mainElement: view, secondaryElement: navigationController?.navigationBar)
-        self.habitsTableView.reloadData()
     }
     
     @IBAction func unwindToMainScreen(_ unwindSegue: UIStoryboardSegue) {
