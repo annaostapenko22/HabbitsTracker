@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1F-it-QKP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1188" y="483"/>
+            <point key="canvasLocation" x="-330" y="1551"/>
         </scene>
         <!-- Actual habits-->
         <scene sceneID="6oW-gh-58U">
@@ -99,7 +99,6 @@
                                             <outlet property="habitImage" destination="5gK-Xq-YaN" id="8gl-wq-9k1"/>
                                             <outlet property="habitLabel" destination="YL7-er-TAE" id="Pbo-wA-rlO"/>
                                             <outlet property="habitViewCell" destination="2kX-y7-KV1" id="4ll-X2-a2K"/>
-                                            <segue destination="nfz-Zt-Mad" kind="show" identifier="ShowDetail" id="GzH-KA-735"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -266,11 +265,11 @@ Actual habits</string>
             </objects>
             <point key="canvasLocation" x="3757" y="239"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Test Tab Bar Controller-->
         <scene sceneID="kaK-uv-qJY">
             <objects>
-                <tabBarController id="G2A-ky-s9n" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3v1-Bf-QIx">
+                <tabBarController id="G2A-ky-s9n" customClass="TestTabBarController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3v1-Bf-QIx" customClass="CustomTabBar" customModule="TravelApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,9 +277,10 @@ Actual habits</string>
                         <color key="selectedImageTintColor" red="0.97647058823529409" green="0.89803921568627454" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
+                        <outlet property="testTabBar" destination="3v1-Bf-QIx" id="u9r-91-Hhb"/>
                         <segue destination="mbG-Tb-FtL" kind="relationship" relationship="viewControllers" id="bzb-0h-QJx"/>
-                        <segue destination="GIM-iP-Avl" kind="relationship" relationship="viewControllers" id="PU7-k3-9GD"/>
                         <segue destination="dUB-5J-c3U" kind="relationship" relationship="viewControllers" id="1rr-gv-Ro2"/>
+                        <segue destination="GIM-iP-Avl" kind="show" id="SAd-1p-KvS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcz-yJ-VrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,7 +314,7 @@ Actual habits</string>
             <objects>
                 <tableViewController id="nfz-Zt-Mad" customClass="AddHabitViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="KhA-Ht-gjw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.59215686274509804" green="0.59999999999999998" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -488,7 +488,7 @@ Actual habits</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lM-yI-1gz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1187" y="1168"/>
+            <point key="canvasLocation" x="1187" y="518"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TgG-Tn-8zx">
@@ -508,7 +508,7 @@ Actual habits</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fQ-0u-CZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="483"/>
+            <point key="canvasLocation" x="-330" y="887"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="700-4v-61z">
@@ -710,8 +710,9 @@ Actual habits</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GIM-iP-Avl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="add-button" selectedImage="add-button" id="ejB-NO-ftg"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="eIU-RJ-CAm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HIx-s5-wF0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -726,12 +727,9 @@ Actual habits</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9s2-n0-vZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453.62318840579712" y="1167.8571428571429"/>
+            <point key="canvasLocation" x="454" y="518"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="GzH-KA-735"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemYellowColor"/>
     <resources>
         <image name="Setting" width="26" height="26"/>
