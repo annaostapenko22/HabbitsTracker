@@ -14,13 +14,12 @@ class MainTrackerViewController: UIViewController {
     
     let habitsList = Habit.getHabitList()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
         
-
-        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0	, width: 320, height: 100))
+        _ = FSCalendar(frame: CGRect(x: 0, y: 0	, width: 320, height: 100))
         habitsTableView.tableFooterView = UIView()
         habitsTableView.delegate = self
         habitsTableView.dataSource = self
@@ -28,24 +27,13 @@ class MainTrackerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewDidAppear")
-        viewLoadSetup()
+        self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
         self.habitsTableView.reloadData()
     }
     
     
-    func viewLoadSetup() {
-        let themeValue = retrieveThemeData()
-        print("value \(themeValue)")
-        if themeValue == "orange" {
-            habitsTableView.backgroundColor = UIColor.orange
-        } else {
-            habitsTableView.backgroundColor = UIColor.systemGray6
-        }
-    }
-    
     @IBAction func unwindToMainScreen(_ unwindSegue: UIStoryboardSegue) {
-     
+        
     }
 }
 
@@ -104,16 +92,3 @@ extension MainTrackerViewController: UITabBarDelegate {
     //}
 }
 
-
-extension MainTrackerViewController {
-    func saveThemeData(value: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(value, forKey: "theme")
-    }
-    
-    func retrieveThemeData() -> String{
-        let defaults = UserDefaults.standard
-        guard let savedValue = defaults.string(forKey: "theme") else { return "gray" }
-        return savedValue
-    }
-}
