@@ -8,6 +8,15 @@
 import UIKit
 import CoreData
 
+enum PaletteColor: String {
+    case orange
+    case gray
+    case green
+    case violett
+    case blue
+    case yellow 
+}
+
 class ThemeViewController: UIViewController {
     
     @IBOutlet var orangeThemeCircle: UIButton!
@@ -134,6 +143,38 @@ class ThemeViewController: UIViewController {
         }
     }
     
+    private func setPaletteColors(chosenColor: String) {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
+        
+        let largeBoldCircleFilled = UIImage(systemName: "circle.fill", withConfiguration: largeConfig)
+        let largeBoldEmptyCircle = UIImage(systemName: "circle", withConfiguration: largeConfig)
+        
+        let color = retrieveThemeData()
+//        var paletteColor = PaletteColor.orange.rawValue
+        switch color {
+        case PaletteColor.orange.rawValue:
+            orangeThemeCircle.setImage(largeBoldCircleFilled, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+        case PaletteColor.green.rawValue:
+            greenThemeColor.setImage(largeBoldCircleFilled, for: .normal)
+            orangeThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+        default:
+            orangeThemeCircle.setImage(largeBoldCircleFilled, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+        }
+    }
     
     @IBAction func goBack(_ sender: UIButton) {
         
