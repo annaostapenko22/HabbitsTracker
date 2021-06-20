@@ -30,15 +30,48 @@ class ThemeViewController: UIViewController {
             orangeThemeCircle.setImage(largeBoldCircleFilled, for: .normal)
             grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
             greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
         }   else if value == "gray" {
-            orangeThemeCircle.setImage(largeBoldCircleFilled, for: .normal)
+            grayThemeCircle.setImage(largeBoldCircleFilled, for: .normal)
+            orangeThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+        }
+        else if value == "green" {
+            greenThemeColor.setImage(largeBoldCircleFilled, for: .normal)
+            orangeThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+        }
+        else if value == "violett" {
+            violetThemeColor.setImage(largeBoldCircleFilled, for: .normal)
+            orangeThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
             grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
             greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+        }
+        else if value == "blue" {
+            blueThemeColor.setImage(largeBoldCircleFilled, for: .normal)
+            orangeThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
         }
         else {
-            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            yellowThemeColor.setImage(largeBoldCircleFilled, for: .normal)
             orangeThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
-            greenThemeColor.setImage(largeBoldCircleFilled, for: .normal)
+            grayThemeCircle.setImage(largeBoldEmptyCircle, for: .normal)
+            greenThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            violetThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            blueThemeColor.setImage(largeBoldEmptyCircle, for: .normal)
         }
         
     }
@@ -53,17 +86,51 @@ class ThemeViewController: UIViewController {
             orangeThemeCircle.setImage(paletteCircleFilled, for: .normal)
             grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
             greenThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            violetThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            blueThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            yellowThemeColor.setImage(paletteCircleEmpty, for: .normal)
             saveThemeData(value: "orange")
         } else if sender.tag == 1 {
-            orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
             grayThemeCircle.setImage(paletteCircleFilled, for: .normal)
+            orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
             greenThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            violetThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            blueThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            yellowThemeColor.setImage(paletteCircleEmpty, for: .normal)
             saveThemeData(value: "gray")
-        } else {
-            grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+        } else if sender.tag == 2 {
             orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
             greenThemeColor.setImage(paletteCircleFilled, for: .normal)
+            grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            violetThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            blueThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            yellowThemeColor.setImage(paletteCircleEmpty, for: .normal)
             saveThemeData(value: "green")
+        }else if sender.tag == 3 {
+            grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            blueThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            yellowThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            violetThemeColor.setImage(paletteCircleFilled, for: .normal)
+            greenThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            saveThemeData(value: "violett")
+        }else if sender.tag == 4 {
+            violetThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            yellowThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            blueThemeColor.setImage(paletteCircleFilled, for: .normal)
+            greenThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            saveThemeData(value: "blue")
+        }
+        else {
+            violetThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            blueThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            greenThemeColor.setImage(paletteCircleEmpty, for: .normal)
+            grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
+            yellowThemeColor.setImage(paletteCircleFilled, for: .normal)
+            saveThemeData(value: "yellow")
         }
     }
     
