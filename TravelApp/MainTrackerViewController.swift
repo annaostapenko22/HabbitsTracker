@@ -12,7 +12,8 @@ class MainTrackerViewController: UIViewController {
     
     @IBOutlet weak var habitsTableView: UITableView!
     
-    let habitsList = Habit.getHabitList()
+    var habitsList = Habit.getHabitList()
+    
     fileprivate weak var calendar: FSCalendar!
 
     override func viewDidLoad() {
@@ -23,15 +24,18 @@ class MainTrackerViewController: UIViewController {
         habitsTableView.delegate = self
         habitsTableView.dataSource = self
         setUpCalendar()
+        habitsTableView.bringSubviewToFront(calendar)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewDidAppear")
         viewLoadSetup()
-        self.habitsTableView.reloadData()
+        
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        habitsTableView.reloadData()
+    }
     
     func viewLoadSetup() {
         let themeValue = retrieveThemeData()
@@ -83,7 +87,7 @@ extension MainTrackerViewController: UITableViewDelegate {
 }
 extension MainTrackerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Habit.getHabitList().count
+        habitsList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! CustomTableViewCell
@@ -103,29 +107,41 @@ extension MainTrackerViewController: UITabBarDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         guard let navigationVC = viewController as? UINavigationController else { return }
-        if let statisticsVC = navigationVC.topViewController as? StatisticsViewController {
-            statisticsVC.habitsList = habitsList
+        if let _ = navigationVC.topViewController as? AddHabitViewController {
+            if let selectedIndexPath = habitsTableView.indexPathForSelectedRow {
+                habitsTableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
         }
     }
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //        if let vc = segue.destination as? addHabitViewController,
-    //           let indexPath = tableView.indexPathForSelectedRow
-    //        {
-    //            let habit = habitList[indexPath.row]
-    //            vc.habit = habit
-    //        } else { return }
-    //    }
-    //
-    //    @IBAction func unwindSegueToMainScreen(segue: UIStoryboardSegue) {
-    //
-    //        guard let newHabitVC = segue.source as? NewPersonViewController else { return }
-    //        newHabitVC.saveNewPerson()
-    //        habitList.append(newHabitVC.newHabit!)
-    //        habitsTableView.reloadData()
-    //
-    //    }
-    //}
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "changeHabit" {
+                guard let navigationVC = segue.destination as? UINavigationController else { return }
+                let destination = navigationVC.topViewController as! AddHabitViewController
+                let selectedIndexPath = habitsTableView.indexPathForSelectedRow!
+                destination.habit = habitsList[selectedIndexPath.row]
+            }
+        }
+    
+        @IBAction func unwindSegueToMainScreen(segue: UIStoryboardSegue) {
+    
+            guard let sourse = segue.source as? AddHabitViewController else { return }
+            if let selectedIndexPath = habitsTableView.indexPathForSelectedRow {
+                habitsList[selectedIndexPath.row].title = sourse.habit.title
+                habitsTableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+                print(habitsList[selectedIndexPath.row].title)
+//            newHabitVC.saveNewPerson()
+//            habitList.append(newHabitVC.newHabit!)
+            } else {
+                let newIndexPath = IndexPath(row: 2, section: 0)
+                habitsList.append(sourse.habit)
+                print(habitsList)
+                print(habitsList.count)
+                habitsTableView.insertRows(at: [newIndexPath], with: .bottom)
+//                habitsTableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
+//                habitsTableView.reloadData()
+                
+            }
+    }
 }
 
 

@@ -42,14 +42,12 @@ class CustomTabBar: UITabBar {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = shapePath()
         shapeLayer.strokeColor = UIColor.lightGray.cgColor
-        shapeLayer.fillColor = UIColor.white.cgColor
-        shapeLayer.lineWidth = 1.0
-
+        shapeLayer.fillColor = UIColor(red: 155/255, green: 160/255, blue: 163/255, alpha: 1).cgColor
         // 2
         let circleLayer = CAShapeLayer()
         circleLayer.path = circlePath()
         circleLayer.strokeColor = UIColor.lightGray.cgColor
-        circleLayer.fillColor = UIColor.white.cgColor
+        circleLayer.fillColor = UIColor(red: 155/255, green: 160/255, blue: 163/255, alpha: 1).cgColor
         circleLayer.lineWidth = 1.0
 
         // 3
@@ -73,4 +71,18 @@ class CustomTabBar: UITabBar {
     override func draw(_ rect: CGRect) {
         drawTabBar()
     }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let pointIsInside = super.point(inside: point, with: event) // 1
+        if pointIsInside == false { // 2
+            for subview in subviews { // 2.1
+                let pointInSubview = subview.convert(point, from: self) // 2.2
+                if subview.point(inside: pointInSubview, with: event) { // 2.3
+                    return true // 2.3.1
+                }
+            }
+        }
+        return pointIsInside // 3
+    }
 }
+

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2497B0CD267D12320073A626 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497B0CC267D12320073A626 /* AddHabitViewController.swift */; };
-		7D4F5DC0267F402100EB84BC /* TestTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5DBF267F402100EB84BC /* TestTabBarController.swift */; };
+		7D4F5DC0267F402100EB84BC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5DBF267F402100EB84BC /* MainTabBarController.swift */; };
 		7D4F5DC2267F42F900EB84BC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5DC1267F42F900EB84BC /* CustomTabBar.swift */; };
 		7D77FEE4267CB16900D137E7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */; };
 		7D77FEE8267CBAD400D137E7 /* HabitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */; };
@@ -33,7 +33,7 @@
 		1620FEA3226602465D837092 /* Pods-TravelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.debug.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2497B0CC267D12320073A626 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		3DBDD08A7A7D3C344F7E23AD /* Pods-TravelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.release.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.release.xcconfig"; sourceTree = "<group>"; };
-		7D4F5DBF267F402100EB84BC /* TestTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarController.swift; sourceTree = "<group>"; };
+		7D4F5DBF267F402100EB84BC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7D4F5DC1267F42F900EB84BC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsModel.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				CB08673D267D3A2D00D6E2F0 /* SettingsTableViewCell.swift */,
 				CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */,
 				CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */,
-				7D4F5DBF267F402100EB84BC /* TestTabBarController.swift */,
+				7D4F5DBF267F402100EB84BC /* MainTabBarController.swift */,
 				7D4F5DC1267F42F900EB84BC /* CustomTabBar.swift */,
 				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
 				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
@@ -265,7 +265,7 @@
 				CB086741267D3CA600D6E2F0 /* SettingsItem.swift in Sources */,
 				7D77FF0A267D094900D137E7 /* StatisticsViewController.swift in Sources */,
 				7D77FEE4267CB16900D137E7 /* CustomTableViewCell.swift in Sources */,
-				7D4F5DC0267F402100EB84BC /* TestTabBarController.swift in Sources */,
+				7D4F5DC0267F402100EB84BC /* MainTabBarController.swift in Sources */,
 				CBE0E4A4267C7AC000BB5A9E /* SceneDelegate.swift in Sources */,
 				CB5F8E2B267E052200FD4BA1 /* ViewController+Extensions.swift in Sources */,
 			);
@@ -419,13 +419,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WJM24K3YHR;
 				INFOPLIST_FILE = TravelApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.TravelApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.HabbitsTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,13 +440,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WJM24K3YHR;
 				INFOPLIST_FILE = TravelApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.TravelApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.HabbitsTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

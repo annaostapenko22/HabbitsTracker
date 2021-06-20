@@ -7,20 +7,21 @@
 
 import UIKit
 
-class TestTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController {
 
     private let middleButtonDiameter: CGFloat = 42
-
-    private let redColor: UIColor = UIColor(red: 249.0 / 255.0, green: 229.0 / 255.0, blue: 71.0 / 255.0, alpha: 1.0)
+    private let yellowColor: UIColor = UIColor(red: 249.0 / 255.0, green: 229.0 / 255.0, blue: 71.0 / 255.0, alpha: 1.0)
     private let greenColor: UIColor = UIColor(red: 102.0 / 255.0, green: 166.0 / 255.0, blue: 54.0 / 255.0, alpha: 1.0)
 
     private lazy var middleButton: UIButton = {
         let middleButton = UIButton()
         middleButton.layer.cornerRadius = middleButtonDiameter / 2
-        middleButton.backgroundColor = redColor
+        middleButton.backgroundColor = yellowColor
         middleButton.translatesAutoresizingMaskIntoConstraints = false
+        middleButton.addTarget(self, action: #selector(didPressMiddleButton), for: .touchUpInside)
         return middleButton
     }()
+    
     private lazy var heartImageView: UIImageView = {
         let heartImageView = UIImageView()
         heartImageView.image = UIImage(named: "plus")
@@ -28,6 +29,7 @@ class TestTabBarController: UITabBarController {
         heartImageView.translatesAutoresizingMaskIntoConstraints = false
         return heartImageView
     }()
+    
     @IBOutlet weak var testTabBar: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,7 @@ class TestTabBarController: UITabBarController {
         // 1
         tabBar.addSubview(middleButton)
         middleButton.addSubview(heartImageView)
-
+        
         // 2
         NSLayoutConstraint.activate([
             // 2.1
@@ -61,14 +63,23 @@ class TestTabBarController: UITabBarController {
         ])
     }
 
-    /*
-    // MARK: - Navigation
+// MARK: - Selectors
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+@objc private func didPressMiddleButton() {
+    selectedIndex = 1
+    middleButton.backgroundColor = greenColor
+    
+}
+}
+// MARK: - UITabBarControllerDelegate
+
+extension MainTabBarController: UITabBarControllerDelegate {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        let selectedIndex = self.tabBar.items?.firstIndex(of: item) // 1
+        if selectedIndex != 1 { // 2
+            middleButton.backgroundColor = yellowColor // 3
+        } else {
+            middleButton.backgroundColor = greenColor // 4
+        }
     }
-    */
-
 }

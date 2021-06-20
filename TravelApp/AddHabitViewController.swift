@@ -9,6 +9,8 @@ import UIKit
 
 class AddHabitViewController: UITableViewController {
     
+    var habit: Habit!
+    
     //MARK: - IBOutlets
     @IBOutlet weak var saveHabitButton: UIBarButtonItem!
     
@@ -20,10 +22,14 @@ class AddHabitViewController: UITableViewController {
     @IBOutlet weak var targetSwitchHabit: UISwitch!
     
     //MARK: - Public properties
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if habit == nil {
+            newHabitTextField.text = ""
+        } else {
+            newHabitTextField.text = habit.title
+        }
     }
     
     
@@ -31,12 +37,26 @@ class AddHabitViewController: UITableViewController {
     @IBAction func pressedAddButton(_ sender: UIBarButtonItem) {
       
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if habit == nil {
+            habit = Habit(title: "", declaration: "", image: "", isCheck: false)
+        }
+        habit.title = newHabitTextField.text ?? ""
+        habit.declaration = descriptionHabitTextField.text ?? ""
+        habit.image = "read"
+        habit.isCheck = false
+    }
+    
+    
 }
 
 //MARK: - UITextFieldDelegate
 extension AddHabitViewController: UITextFieldDelegate {
 
 }
+
+
 
 /*
  
