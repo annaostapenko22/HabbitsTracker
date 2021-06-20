@@ -93,6 +93,80 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CBD4D29E267FBD16007032AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBD4D2A4267FBDB7007032AA /* AddHabbit */,
+				CBD4D2A3267FBD83007032AA /* Statistic */,
+				CBD4D2A2267FBD6A007032AA /* Settings */,
+				CBD4D2A1267FBD4D007032AA /* Main */,
+				CBD4D2A0267FBD2F007032AA /* Theme */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CBD4D29F267FBD24007032AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB086740267D3CA600D6E2F0 /* SettingsItem.swift */,
+				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
+				CB5F8E30267E06CF00FD4BA1 /* ThemeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBD4D2A0267FBD2F007032AA /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				CB5F8DFE267DFB4900FD4BA1 /* ThemeViewController.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		CBD4D2A1267FBD4D007032AA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
+				7D4F5DC1267F42F900EB84BC /* CustomTabBar.swift */,
+				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
+				7D4F5DBF267F402100EB84BC /* MainTabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CBD4D2A2267FBD6A007032AA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CB08673D267D3A2D00D6E2F0 /* SettingsTableViewCell.swift */,
+				CB086734267D228300D6E2F0 /* SettingsTableViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CBD4D2A3267FBD83007032AA /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				7D77FF09267D094900D137E7 /* StatisticsViewController.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		CBD4D2A4267FBDB7007032AA /* AddHabbit */ = {
+			isa = PBXGroup;
+			children = (
+				2497B0CC267D12320073A626 /* AddHabitViewController.swift */,
+			);
+			path = AddHabbit;
+			sourceTree = "<group>";
+		};
+		CBD4D2A5267FBDC9007032AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CBE0E495267C7AC000BB5A9E = {
 			isa = PBXGroup;
 			children = (
@@ -114,26 +188,16 @@
 		CBE0E4A0267C7AC000BB5A9E /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				CBD4D2A5267FBDC9007032AA /* Resources */,
+				CBD4D29F267FBD24007032AA /* Models */,
+				CBD4D29E267FBD16007032AA /* Controllers */,
 				CB5F8E29267E04FD00FD4BA1 /* Extensions */,
-				2497B0CC267D12320073A626 /* AddHabitViewController.swift */,
 				CBE0E4A1267C7AC000BB5A9E /* AppDelegate.swift */,
-				CB086740267D3CA600D6E2F0 /* SettingsItem.swift */,
-				CB086734267D228300D6E2F0 /* SettingsTableViewController.swift */,
-				7D77FF09267D094900D137E7 /* StatisticsViewController.swift */,
-				CBE0E4AA267C7AC100BB5A9E /* Assets.xcassets */,
-				7D77FEE3267CB16900D137E7 /* CustomTableViewCell.swift */,
-				7D77FEE7267CBAD400D137E7 /* HabitsModel.swift */,
 				CBE0E4AF267C7AC100BB5A9E /* Info.plist */,
-				CB08673D267D3A2D00D6E2F0 /* SettingsTableViewCell.swift */,
 				CBE0E4AC267C7AC100BB5A9E /* LaunchScreen.storyboard */,
 				CBE0E4A7267C7AC000BB5A9E /* Main.storyboard */,
-				7D4F5DBF267F402100EB84BC /* MainTabBarController.swift */,
-				7D4F5DC1267F42F900EB84BC /* CustomTabBar.swift */,
-				CBE0E4A5267C7AC000BB5A9E /* MainTrackerViewController.swift */,
 				CBE0E4A3267C7AC000BB5A9E /* SceneDelegate.swift */,
-				CB5F8DFE267DFB4900FD4BA1 /* ThemeViewController.swift */,
 				CB5F8E01267E015000FD4BA1 /* ThemeModel.xcdatamodeld */,
-				CB5F8E30267E06CF00FD4BA1 /* ThemeModel.swift */,
 			);
 			path = TravelApp;
 			sourceTree = "<group>";
