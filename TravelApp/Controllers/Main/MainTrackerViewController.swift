@@ -10,6 +10,7 @@ import CoreData
 
 class MainTrackerViewController: UIViewController {
     
+    @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var habitsTableView: UITableView!
     
     var habitsList = Habit.getHabitList()
@@ -31,8 +32,16 @@ class MainTrackerViewController: UIViewController {
         habitsTableView.reloadData()
     }
     
-    @IBAction func unwindToMainScreen(_ unwindSegue: UIStoryboardSegue) {
-        
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        if habitsTableView.isEditing {
+            habitsTableView.setEditing(false, animated: true)
+            sender.image = #imageLiteral(resourceName: "key")
+            addBarButton.isEnabled = true
+        } else {
+            habitsTableView.setEditing(true, animated: true)
+            sender.image = UIImage(systemName: "checkmark")
+            addBarButton.isEnabled = false
+        }
     }
 }
 
@@ -54,7 +63,7 @@ extension MainTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
         self.calendar.headerHeight = 0
         
         for index in 0..<self.calendar.calendarWeekdayView.weekdayLabels.count {
-            self.calendar.calendarWeekdayView.weekdayLabels[index].font = UIFont(name: "AvenirNext-Bold", size: 20)
+            self.calendar.calendarWeekdayView.weekdayLabels[index].font = UIFont(name: "Avenir-Heavy", size: 18)
             self.calendar.calendarWeekdayView.weekdayLabels[index].textColor = UIColor(red: 249/255, green: 229/255, blue: 71/255, alpha: 1)
         }
         
@@ -83,6 +92,19 @@ extension MainTrackerViewController: UITableViewDataSource {
         cell.habitImage.tintColor = UIColor.white
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            habitsList.remove(at: indexPath.row)
+            habitsTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let itemToMove = habitsList[sourceIndexPath.row]
+        habitsList.remove(at: sourceIndexPath.row)
+        habitsList.insert(itemToMove, at: destinationIndexPath.row)
+    }
 }
 
 // MARK: - Navigation actions and PassData
@@ -106,6 +128,9 @@ extension MainTrackerViewController {
             let selectedIndexPath = habitsTableView.indexPathForSelectedRow!
             destination.habit = habitsList[selectedIndexPath.row]
         }
+    }
+    
+    @IBAction func unwindToMainScreen(_ unwindSegue: UIStoryboardSegue) {
     }
     
     @IBAction func unwindSegueToMainScreen(segue: UIStoryboardSegue) {

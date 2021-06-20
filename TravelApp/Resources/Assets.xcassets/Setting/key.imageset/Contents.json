@@ -1,11 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "add-button.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
+      "filename" : "key.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
