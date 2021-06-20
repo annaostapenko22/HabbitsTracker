@@ -8,56 +8,44 @@
 import UIKit
 import CoreData
 
+let PaletteColors = [0: "orange",
+                     1: "gray",
+                     2: "green",
+                     3: "violett",
+                     4: "blue",
+                     5: "yellow"
+]
+
+
 class ThemeViewController: UIViewController {
     
-    @IBOutlet var orangeThemeCircle: UIButton!
-    @IBOutlet var grayThemeCircle: UIButton!
+    @IBOutlet var themeColors: [UIButton]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = retrieveThemeData()
-        print("value \(value)")
-        if value == "orange" {
-            orangeThemeCircle.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        } else {
-            grayThemeCircle.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        }
-     
+        setPaletteColors(chosenColor: Int(self.view.retrieveThemeData()) ?? 0)
     }
     
     
     @IBAction func onPaletteCirclePress(_ sender: UIButton) {
-        let paletteCircleEmpty = UIImage(systemName: "circle")
-        let paletteCircleFilled = UIImage(systemName: "circle.fill")
+        setPaletteColors(chosenColor: sender.tag)
+    }
+    
+    private func setPaletteColors(chosenColor: Int) {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
         
-        if sender.tag == 0 {
-            orangeThemeCircle.setImage(paletteCircleFilled, for: .normal)
-            grayThemeCircle.setImage(paletteCircleEmpty, for: .normal)
-            saveThemeData(value: "orange")
-
-        } else {
-            grayThemeCircle.setImage(paletteCircleFilled, for: .normal)
-            orangeThemeCircle.setImage(paletteCircleEmpty, for: .normal)
-            saveThemeData(value: "gray")
+        let largeBoldCircleFilled = UIImage(systemName: "circle.fill", withConfiguration: largeConfig)
+        let largeBoldEmptyCircle = UIImage(systemName: "circle", withConfiguration: largeConfig)
+        
+        
+        for themeColor in themeColors {
+            if themeColor.tag == chosenColor {
+                themeColor.setImage(largeBoldCircleFilled, for: .normal)
+                self.view.saveThemeData(value: String(chosenColor))
+            } else {
+                themeColor.setImage(largeBoldEmptyCircle, for: .normal)
+            }
         }
-    }
-    
-    
-    @IBAction func goBack(_ sender: UIButton) {
-        
-    }
-    
-}
-
-extension ThemeViewController {
-    func saveThemeData(value: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(value, forKey: "theme")
-    }
-    
-    func retrieveThemeData() -> String{
-        let defaults = UserDefaults.standard
-        guard let savedValue = defaults.string(forKey: "theme") else { return "gray" }
-        return savedValue
     }
 }
