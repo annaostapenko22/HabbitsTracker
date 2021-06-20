@@ -9,7 +9,9 @@ import UIKit
 
 class AddHabitViewController: UITableViewController {
     
-    //MARK: - IBOutlets
+    var habit: Habit!
+    
+    //MARK: - IBOutlets and Settings
     @IBOutlet weak var saveHabitButton: UIBarButtonItem!
     
     @IBOutlet weak var newHabitTextField: UITextField!
@@ -19,39 +21,70 @@ class AddHabitViewController: UITableViewController {
     @IBOutlet weak var repeatSwitchHabit: UISwitch!
     @IBOutlet weak var targetSwitchHabit: UISwitch!
     
-    //MARK: - Public properties
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.setThemeColors(mainElement: self.tableView, secondaryElement: navigationController?.navigationBar)
+        
+        newHabitTextField.delegate = self
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapScreen)
+        
+        saveHabitButton.isEnabled = false
+        newHabitTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.setThemeColors(mainElement: self.tableView, secondaryElement: navigationController?.navigationBar)
         self.tableView.reloadData()
+        
+        if habit == nil {
+            newHabitTextField.text = ""
+        } else {
+            newHabitTextField.text = habit.title
+        }
     }
-    //MARK: - IBAction
-    @IBAction func pressedAddButton(_ sender: UIBarButtonItem) {
-      
+    
+    @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    //MARK: - Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if habit == nil {
+            habit = Habit(title: "", declaration: "", image: "", isCheck: false)
+        }
+        habit.title = newHabitTextField.text!
+        habit.declaration = descriptionHabitTextField.text ?? ""
+        habit.image = "read"
+        habit.isCheck = false
     }
 }
 
-//MARK: - UITextFieldDelegate
+// MARK: - Text field delegate
+
 extension AddHabitViewController: UITextFieldDelegate {
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc private func textFieldChanged() {
+        
+        if newHabitTextField.text?.isEmpty == false {
+            saveHabitButton.isEnabled = true
+        } else {
+            saveHabitButton.isEnabled = false
+        }
+    }
 }
 
-/*
- 
- не успел реализовать скрытие клавиатуры (тут обычный метод не прокатывает, тк у нас скролл есть.
-https://bestkora.com/IosDeveloper/dopolnenie-k-lektsii-8-kak-skryt-klaviaturu-posle-vvoda-teksta/
-С этим можете не заморачиваться, если не мешает, я как вернусь - доделаю до конца.
- 
-Ну а остальное дело техники, думаю и без меня справитесь. Осталось по сути взять инфу с предыдущей дз. И я бы все же начал реализовывать все от таббарвьюконтроллера (можно у меня в домашке на гите посмотреть, и на занятии тоже отилчное решение есть).
- 
-Удачи! При возможности подключусь сразу же :)
- 
- */
 
 

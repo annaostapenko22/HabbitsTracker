@@ -20,5 +20,6 @@ extension Habit {
         
         [Habit(title: "Читать", declaration: "Чтение расширяет кругозор и ты становишься более приятным собеседником", image: "read", isCheck: false),
         Habit(title: "Делать зарядку", declaration: "Зарядка - залог бодрости и энергии", image: "sport", isCheck: false)]
+        
     }
 }

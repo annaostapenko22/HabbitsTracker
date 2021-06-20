@@ -21,7 +21,6 @@ class ThemeViewController: UIViewController {
     
     @IBOutlet var themeColors: [UIButton]!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setPaletteColors(chosenColor: Int(self.view.retrieveThemeData()) ?? 0)
