@@ -25,13 +25,20 @@ class AddHabitViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.setThemeColors(mainElement: self.tableView, secondaryElement: navigationController?.navigationBar)
         if habit == nil {
             newHabitTextField.text = ""
         } else {
             newHabitTextField.text = habit.title
         }
+       
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.setThemeColors(mainElement: self.tableView, secondaryElement: navigationController?.navigationBar)
+        self.tableView.reloadData()
+    }
     
     //MARK: - IBAction
     @IBAction func pressedAddButton(_ sender: UIBarButtonItem) {

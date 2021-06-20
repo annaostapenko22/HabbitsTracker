@@ -9,16 +9,20 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     var settingsList = [
-        SettingsItem(title: "Уведомления", image: "clock"),
-        SettingsItem(title: "Тема", image: "pencil.tip.crop.circle")
+        SettingsItem(title: "Тема", image: "pencil.tip.crop.circle", id: "theme"),
+        SettingsItem(title: "Уведомления", image: "clock", id: "notification")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem()
-            backButton.title = "Back2"
-            self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
+        backButton.title = "Back"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.setThemeColors(mainElement: self.tableView, secondaryElement: navigationController?.navigationBar)
+        self.tableView.reloadData()
     }
 }
 
@@ -34,7 +38,6 @@ extension SettingsTableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("here")
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! SettingsTableViewCell
         let settingItem = settingsList[indexPath[0]]
         cell.titleLabel?.text = settingItem.title
@@ -43,6 +46,9 @@ extension SettingsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if settingsList[indexPath[0]].id == "theme" {
+            self.performSegue(withIdentifier: "themeSegue", sender: self)
+        }
     }
     
 }
