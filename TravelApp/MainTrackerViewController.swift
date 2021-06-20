@@ -15,6 +15,8 @@ class MainTrackerViewController: UIViewController {
     let habitsList = Habit.getHabitList()
     
     
+    fileprivate weak var calendar: FSCalendar!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
@@ -23,6 +25,7 @@ class MainTrackerViewController: UIViewController {
         habitsTableView.tableFooterView = UIView()
         habitsTableView.delegate = self
         habitsTableView.dataSource = self
+        setUpCalendar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +40,35 @@ class MainTrackerViewController: UIViewController {
     }
 }
 
+extension MainTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
+    
+    func setUpCalendar() {
+        let calendar = FSCalendar()
+            calendar.dataSource = self
+            calendar.delegate = self
+            self.calendar = calendar
+
+            self.calendar.scope = .week
+            self.calendar.locale = Locale(identifier: "ru_Ru")
+            self.calendar.calendarHeaderView.calendar.locale =  Locale(identifier: "ru_RU")
+            self.calendar.adjustsBoundingRectWhenChangingMonths = true
+            self.calendar.headerHeight = 0
+        for index in 0..<self.calendar.calendarWeekdayView.weekdayLabels.count {
+            self.calendar.calendarWeekdayView.weekdayLabels[index].font = UIFont(name: "AvenirNext-Bold", size: 20)
+            self.calendar.calendarWeekdayView.weekdayLabels[index].textColor = UIColor(red: 249/255, green: 229/255, blue: 71/255, alpha: 1)
+        }
+//        self.calendar.collectionView.
+            view.addSubview(calendar)
+
+            self.calendar.translatesAutoresizingMaskIntoConstraints = false
+            self.calendar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            self.calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            self.calendar.widthAnchor.constraint(equalToConstant: view.bounds.size.width).isActive = true
+            self.calendar.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        }
+    
+    
+}
 
 extension MainTrackerViewController: UITableViewDelegate {
     
@@ -54,10 +86,6 @@ extension MainTrackerViewController: UITableViewDataSource {
         cell.habitImage.tintColor = UIColor.white
         return cell
     }
-}
-
-extension MainTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
-    
 }
 
 extension MainTrackerViewController: UITabBarDelegate {
