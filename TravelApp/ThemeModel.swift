@@ -13,7 +13,7 @@ struct ThemeModel {
         case 0:
             palette = PaletteModel(primaryColor: "#FFC288", secondaryColor: "#FF6701", textColor: "#FFFFFF")
         case 1:
-            palette = PaletteModel(primaryColor: "#CDC7BE", secondaryColor: "#766161", textColor: "#F8F5F1")
+            palette = PaletteModel(primaryColor: "#97999B", secondaryColor: "#7D8085", textColor: "#F8F5F1")
         case 2:
             palette = PaletteModel(primaryColor: "#A7C4BC", secondaryColor: "#2F5D62", textColor: "#FFFFFF")
         case 3:

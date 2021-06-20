@@ -8,78 +8,73 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-
+    
+    // MARK: - Create customButton
+    
     private let middleButtonDiameter: CGFloat = 42
-    private let yellowColor: UIColor = UIColor(red: 249.0 / 255.0, green: 229.0 / 255.0, blue: 71.0 / 255.0, alpha: 1.0)
-    private let greenColor: UIColor = UIColor(red: 102.0 / 255.0, green: 166.0 / 255.0, blue: 54.0 / 255.0, alpha: 1.0)
-
-    private lazy var middleButton: UIButton = {
+    private let customYellowColor: UIColor = UIColor(red: 249.0 / 255.0, green: 229.0 / 255.0, blue: 71.0 / 255.0, alpha: 1.0)
+    private let customGreenColor: UIColor = UIColor(red: 196.0 / 255.0, green: 253.0 / 255.0, blue: 61.0 / 255.0, alpha: 1.0)
+    
+    private lazy var customButton: UIButton = {
         let middleButton = UIButton()
         middleButton.layer.cornerRadius = middleButtonDiameter / 2
-        middleButton.backgroundColor = yellowColor
+        middleButton.backgroundColor = customGreenColor
         middleButton.translatesAutoresizingMaskIntoConstraints = false
         middleButton.addTarget(self, action: #selector(didPressMiddleButton), for: .touchUpInside)
         return middleButton
     }()
     
-    private lazy var heartImageView: UIImageView = {
+    private lazy var plusImageView: UIImageView = {
         let heartImageView = UIImageView()
         heartImageView.image = UIImage(named: "plus")
-        heartImageView.tintColor = .yellow
         heartImageView.translatesAutoresizingMaskIntoConstraints = false
         return heartImageView
     }()
     
-    @IBOutlet weak var testTabBar: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
-        
     }
+    
+    // MARK: - Add customButton and customize its location
     
     private func makeUI() {
-        // 1
-        tabBar.addSubview(middleButton)
-        middleButton.addSubview(heartImageView)
         
-        // 2
+        tabBar.addSubview(customButton)
+        customButton.addSubview(plusImageView)
+        
         NSLayoutConstraint.activate([
-            // 2.1
-            middleButton.heightAnchor.constraint(equalToConstant: middleButtonDiameter),
-            middleButton.widthAnchor.constraint(equalToConstant: middleButtonDiameter),
-            // 2.2
-            middleButton.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor),
-            middleButton.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -10)
+            customButton.heightAnchor.constraint(equalToConstant: middleButtonDiameter),
+            customButton.widthAnchor.constraint(equalToConstant: middleButtonDiameter),
+            customButton.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor),
+            customButton.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -10)
         ])
-
-        // 3
+        
         NSLayoutConstraint.activate([
-            // 3.1
-            heartImageView.heightAnchor.constraint(equalToConstant: 15),
-            heartImageView.widthAnchor.constraint(equalToConstant: 18),
-            // 3.2
-            heartImageView.centerXAnchor.constraint(equalTo: middleButton.centerXAnchor),
-            heartImageView.centerYAnchor.constraint(equalTo: middleButton.centerYAnchor)
+            plusImageView.heightAnchor.constraint(equalToConstant: 25),
+            plusImageView.widthAnchor.constraint(equalToConstant: 25),
+            plusImageView.centerXAnchor.constraint(equalTo: customButton.centerXAnchor),
+            plusImageView.centerYAnchor.constraint(equalTo: customButton.centerYAnchor)
         ])
     }
-
-// MARK: - Selectors
-
-@objc private func didPressMiddleButton() {
-    selectedIndex = 1
-    middleButton.backgroundColor = greenColor
     
+    // MARK: - Selectors
+    
+    @objc private func didPressMiddleButton() {
+        selectedIndex = 1
+        customButton.backgroundColor = customYellowColor
+    }
 }
-}
+
 // MARK: - UITabBarControllerDelegate
 
 extension MainTabBarController: UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        let selectedIndex = self.tabBar.items?.firstIndex(of: item) // 1
-        if selectedIndex != 1 { // 2
-            middleButton.backgroundColor = yellowColor // 3
+        let selectedIndex = self.tabBar.items?.firstIndex(of: item)
+        if selectedIndex != 1 {
+            customButton.backgroundColor = customGreenColor
         } else {
-            middleButton.backgroundColor = greenColor // 4
+            customButton.backgroundColor = customYellowColor
         }
     }
 }

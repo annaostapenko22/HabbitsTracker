@@ -13,29 +13,28 @@ class MainTrackerViewController: UIViewController {
     @IBOutlet weak var habitsTableView: UITableView!
     
     var habitsList = Habit.getHabitList()
-    
     fileprivate weak var calendar: FSCalendar!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
         
-        _ = FSCalendar(frame: CGRect(x: 0, y: 0	, width: 320, height: 100))
         habitsTableView.tableFooterView = UIView()
-        habitsTableView.delegate = self
+//        habitsTableView.delegate = self
         habitsTableView.dataSource = self
         setUpCalendar()
-        habitsTableView.bringSubviewToFront(calendar)
+        view.bringSubviewToFront(habitsTableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
+        self.view.setThemeColors(mainElement: view, secondaryElement: navigationController?.navigationBar)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         habitsTableView.reloadData()
-        self.view.setThemeColors(mainElement: habitsTableView, secondaryElement: navigationController?.navigationBar)
+        self.view.setThemeColors(mainElement: view, secondaryElement: navigationController?.navigationBar)
         self.habitsTableView.reloadData()
     }
     
@@ -44,39 +43,40 @@ class MainTrackerViewController: UIViewController {
     }
 }
 
-extension MainTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
+// MARK: - Creating and configuring FSCalendar
+
+extension MainTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     func setUpCalendar() {
         let calendar = FSCalendar()
-            calendar.dataSource = self
-            calendar.delegate = self
-            self.calendar = calendar
-
-            self.calendar.scope = .week
-            self.calendar.locale = Locale(identifier: "ru_Ru")
-            self.calendar.calendarHeaderView.calendar.locale =  Locale(identifier: "ru_RU")
-            self.calendar.adjustsBoundingRectWhenChangingMonths = true
-            self.calendar.headerHeight = 0
+        calendar.dataSource = self
+        calendar.delegate = self
+        self.calendar = calendar
+        
+        self.calendar.scope = .week
+        self.calendar.scrollEnabled = true
+        self.calendar.locale = Locale(identifier: "ru_Ru")
+        self.calendar.calendarHeaderView.calendar.locale =  Locale(identifier: "ru_RU")
+        self.calendar.adjustsBoundingRectWhenChangingMonths = true
+        self.calendar.headerHeight = 0
+        
         for index in 0..<self.calendar.calendarWeekdayView.weekdayLabels.count {
             self.calendar.calendarWeekdayView.weekdayLabels[index].font = UIFont(name: "AvenirNext-Bold", size: 20)
             self.calendar.calendarWeekdayView.weekdayLabels[index].textColor = UIColor(red: 249/255, green: 229/255, blue: 71/255, alpha: 1)
         }
-//        self.calendar.collectionView.
-            view.addSubview(calendar)
-
-            self.calendar.translatesAutoresizingMaskIntoConstraints = false
-            self.calendar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            self.calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-            self.calendar.widthAnchor.constraint(equalToConstant: view.bounds.size.width).isActive = true
-            self.calendar.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        }
-    
-    
+        
+        view.addSubview(calendar)
+        
+        self.calendar.translatesAutoresizingMaskIntoConstraints = false
+        self.calendar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        self.calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        self.calendar.widthAnchor.constraint(equalToConstant: view.bounds.size.width).isActive = true
+        self.calendar.heightAnchor.constraint(equalToConstant: 250).isActive = true
+    }
 }
 
-extension MainTrackerViewController: UITableViewDelegate {
-    
-}
+// MARK: - Table View Data Source
+
 extension MainTrackerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         habitsList.count
@@ -92,9 +92,9 @@ extension MainTrackerViewController: UITableViewDataSource {
     }
 }
 
-extension MainTrackerViewController: UITabBarDelegate {
-    
-    // MARK: - Navigation actions
+// MARK: - Navigation actions and PassData
+
+extension MainTrackerViewController {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
@@ -105,34 +105,29 @@ extension MainTrackerViewController: UITabBarDelegate {
             }
         }
     }
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "changeHabit" {
-                guard let navigationVC = segue.destination as? UINavigationController else { return }
-                let destination = navigationVC.topViewController as! AddHabitViewController
-                let selectedIndexPath = habitsTableView.indexPathForSelectedRow!
-                destination.habit = habitsList[selectedIndexPath.row]
-            }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "changeHabit" {
+            guard let navigationVC = segue.destination as? UINavigationController else { return }
+            let destination = navigationVC.topViewController as! AddHabitViewController
+            let selectedIndexPath = habitsTableView.indexPathForSelectedRow!
+            destination.habit = habitsList[selectedIndexPath.row]
         }
+    }
     
-        @IBAction func unwindSegueToMainScreen(segue: UIStoryboardSegue) {
-    
-            guard let sourse = segue.source as? AddHabitViewController else { return }
-            if let selectedIndexPath = habitsTableView.indexPathForSelectedRow {
-                habitsList[selectedIndexPath.row].title = sourse.habit.title
-                habitsTableView.reloadRows(at: [selectedIndexPath], with: .automatic)
-                print(habitsList[selectedIndexPath.row].title)
-//            newHabitVC.saveNewPerson()
-//            habitList.append(newHabitVC.newHabit!)
-            } else {
-                let newIndexPath = IndexPath(row: 2, section: 0)
-                habitsList.append(sourse.habit)
-                print(habitsList)
-                print(habitsList.count)
-                habitsTableView.insertRows(at: [newIndexPath], with: .bottom)
-//                habitsTableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
-//                habitsTableView.reloadData()
-                
-            }
+    @IBAction func unwindSegueToMainScreen(segue: UIStoryboardSegue) {
+        
+        guard let sourse = segue.source as? AddHabitViewController else { return }
+        
+        if let selectedIndexPath = habitsTableView.indexPathForSelectedRow {
+            habitsList[selectedIndexPath.row].title = sourse.habit.title
+            habitsTableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+            print(habitsList[selectedIndexPath.row].title)
+        } else {
+            let newIndexPath = IndexPath(row: 2, section: 0)
+            habitsList.append(sourse.habit)
+            habitsTableView.insertRows(at: [newIndexPath], with: .bottom)
+            habitsTableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
+        }
     }
 }
-
