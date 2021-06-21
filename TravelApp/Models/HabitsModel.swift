@@ -12,6 +12,7 @@ struct Habit {
     var declaration: String
     var image: String
     var isCheck: Bool
+//    var data: Date
 }
 
 extension Habit {

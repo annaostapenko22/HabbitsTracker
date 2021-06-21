@@ -13,6 +13,8 @@ class AddHabitViewController: UITableViewController {
     
     //MARK: - IBOutlets and Settings
     @IBOutlet weak var saveHabitButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     
     @IBOutlet weak var newHabitTextField: UITextField!
     @IBOutlet weak var descriptionHabitTextField: UITextField!
@@ -30,8 +32,9 @@ class AddHabitViewController: UITableViewController {
         tapScreen.cancelsTouchesInView = false
         view.addGestureRecognizer(tapScreen)
         
-        saveHabitButton.isEnabled = false
         newHabitTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        
+        setBarItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +47,12 @@ class AddHabitViewController: UITableViewController {
         } else {
             newHabitTextField.text = habit.title
         }
+    }
+    
+    private func setBarItem() {
+        saveHabitButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 17)!], for: .normal)
+        cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 17)!], for: .normal)
+        saveHabitButton.isEnabled = false
     }
     
     @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
